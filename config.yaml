@@ -1,0 +1,18 @@
+watch_paths:
+  - ./data/sandbox
+database_url: sqlite:///./data/rdrs.db
+simulation_mode: true
+window_seconds: 60
+entropy_sample_bytes: 65536
+thresholds:
+  modified_per_minute: 20
+  renames: 10
+  extension_changes: 10
+  average_entropy: 7.2
+weights:
+  rapid_encryption: 40
+  mass_rename: 30
+  high_entropy: 25
+  cpu_spike: 15
+  unknown_program: 10
+quarantine_dir: ./data/quarantine

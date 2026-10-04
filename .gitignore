@@ -1,0 +1,26 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Runtime/generated data
+data/rdrs.db
+data/sandbox/*
+data/quarantine/*
+logs/*
+reports/*
+
+# Keep directory structure
+!data/sandbox/.gitkeep
+!data/quarantine/.gitkeep
+!logs/.gitkeep
+!reports/.gitkeep
+
+# IDE / OS files
+.vscode/
+.idea/
+*.code-workspace
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+services:
+  rdrs:
+    build: .
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    ports:
+      - "8000:8000"

@@ -1,0 +1,18 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>RDRS Dashboard</title>
+<style>body{background:#111;color:#eee;font-family:Arial;margin:30px} .card{padding:18px;background:#222;margin:10px 0;border-radius:8px} pre{white-space:pre-wrap}</style>
+</head><body>
+<h1>RDRS — Ransomware Detection & Response</h1>
+<div class="card"><h2 id="level">Loading...</h2><div id="score"></div></div>
+<div class="card"><h3>Recent Alerts</h3><pre id="alerts"></pre></div>
+<div class="card"><h3>Recent Events</h3><pre id="events"></pre></div>
+<script>
+async function refresh(){
+ const status=await fetch('/status').then(r=>r.json());
+ document.getElementById('level').textContent=status.level;
+ document.getElementById('score').textContent='Threat score: '+status.score;
+ document.getElementById('alerts').textContent=JSON.stringify(await fetch('/alerts').then(r=>r.json()),null,2);
+ document.getElementById('events').textContent=JSON.stringify((await fetch('/events').then(r=>r.json())).slice(0,20),null,2);
+}
+refresh(); setInterval(refresh,3000);
+</script></body></html>
